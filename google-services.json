@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "156308865725",
+    "firebase_url": "https://probeautyeyebrow-default-rtdb.firebaseio.com",
+    "project_id": "probeautyeyebrow",
+    "storage_bucket": "probeautyeyebrow.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156308865725:android:8b0acfcd8f72889facedd4",
+        "android_client_info": {
+          "package_name": "com.probeauty.ProBeautyEyebrowApp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156308865725-3hdrv2tvupdbeashk2djrnkbnj0b0hbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl8k7RDPt-5Q6vjbM2xQF9ATy6mRoZDPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156308865725-3hdrv2tvupdbeashk2djrnkbnj0b0hbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156308865725:android:db81388f3db161caacedd4",
+        "android_client_info": {
+          "package_name": "com.probeautyeyebrow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156308865725-3hdrv2tvupdbeashk2djrnkbnj0b0hbb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAl8k7RDPt-5Q6vjbM2xQF9ATy6mRoZDPQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156308865725-3hdrv2tvupdbeashk2djrnkbnj0b0hbb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
