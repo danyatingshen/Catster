@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 public class UserController {
+    //todo: integrate swagger UI
 
     @Autowired
     private UserDao userDao;
