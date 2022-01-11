@@ -41,7 +41,6 @@ $ git push heroku master
 ```
 
 ## APIs
-https://caster-app-heroku.herokuapp.com/getUser?uid=1
-https://caster-app-heroku.herokuapp.com/debug
+https://web.postman.co/workspace/My-Workspace~bfa57112-8551-404d-8ac2-cb720a65e315/request/19104034-9d5e155e-bfa4-491e-b8d1-0208a20206c1
 
 
