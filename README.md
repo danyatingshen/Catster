@@ -40,4 +40,8 @@ $ git commit -am "make it better"
 $ git push heroku master
 ```
 
+## APIs
+https://caster-app-heroku.herokuapp.com/getUser?uid=1
+https://caster-app-heroku.herokuapp.com/debug
+
 
