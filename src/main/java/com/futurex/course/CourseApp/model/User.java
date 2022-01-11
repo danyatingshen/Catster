@@ -1,13 +1,24 @@
-package com.futurex.course.CourseApp;
+package com.futurex.course.CourseApp.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.stereotype.Component;
 
-@Entity
+@Component
 public class User {
-
-    @Id
     private String userid;
+    private String username;
+    private String password;
+
+    public User(){
+        super();
+    }
+
+    public User(String userid, String username, String password) {
+        this.userid = userid;
+        this.username = username;
+        this.password = password;
+    }
+
+
 
     public String getUserid() {
         return userid;
@@ -33,6 +44,5 @@ public class User {
         this.password = password;
     }
 
-    private String username;
-    private String password;
+
 }
