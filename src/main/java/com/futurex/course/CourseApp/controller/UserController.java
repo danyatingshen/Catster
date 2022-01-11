@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.futurex.course.CourseApp.FirebaseService;
@@ -20,8 +20,13 @@ public class UserController {
     @Autowired
     private FirebaseService firebaseService;
 
+    @GetMapping("/debug")
+    public String test() throws InterruptedException, ExecutionException {
+        return "Working";
+    }
+
     @GetMapping("/getUser")
-    public User getUser(@RequestHeader() String uid) throws InterruptedException, ExecutionException {
+    public User getUser(@RequestParam() String uid) throws InterruptedException, ExecutionException {
         return firebaseService.getUser(uid);
     }
 
@@ -37,8 +42,8 @@ public class UserController {
     }
 
     @DeleteMapping("/deleteUser")
-    public String deleteUser(@RequestHeader String name) {
-        return "Deleted User " + name;
+    public String deleteUser(@RequestParam String uid) {
+        return "Deleted User " + uid;
     }
 
 }
