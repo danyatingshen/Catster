@@ -1,4 +1,4 @@
-package com.futurex.course.CourseApp;
+package com.futurex.course.CourseApp.manager.firebase;
 
 import java.io.FileInputStream;
 import java.io.IOException;

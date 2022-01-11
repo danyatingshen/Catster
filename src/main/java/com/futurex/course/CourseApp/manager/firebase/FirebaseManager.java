@@ -1,10 +1,10 @@
-package com.futurex.course.CourseApp;
+package com.futurex.course.CourseApp.manager.firebase;
 
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.stereotype.Service;
 
-import com.futurex.course.CourseApp.model.User;
+import com.futurex.course.CourseApp.model.user.User;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
@@ -12,7 +12,7 @@ import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 
 @Service
-public class FirebaseService {
+public class FirebaseManager {
   public User createUser (User user) {
     Firestore firestore = FirestoreClient.getFirestore();
     ApiFuture<WriteResult> users = firestore.collection("users").document(user.getUserid()).set(user);

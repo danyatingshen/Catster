@@ -1,4 +1,4 @@
-package com.futurex.course.CourseApp.model;
+package com.futurex.course.CourseApp.model.user;
 
 import org.springframework.stereotype.Component;
 

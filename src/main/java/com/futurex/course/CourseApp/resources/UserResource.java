@@ -1,4 +1,4 @@
-package com.futurex.course.CourseApp.controller;
+package com.futurex.course.CourseApp.resources;
 
 import java.util.concurrent.ExecutionException;
 
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.futurex.course.CourseApp.FirebaseService;
-import com.futurex.course.CourseApp.model.User;
+import com.futurex.course.CourseApp.manager.firebase.FirebaseManager;
+import com.futurex.course.CourseApp.model.user.User;
 
 @RestController
-public class UserController {
+public class UserResource {
 
     @Autowired
-    private FirebaseService firebaseService;
+    private FirebaseManager firebaseManager;
 
     @GetMapping("/debug")
     public String test() throws InterruptedException, ExecutionException {
@@ -27,15 +27,16 @@ public class UserController {
 
     @GetMapping("/getUser")
     public User getUser(@RequestParam() String uid) throws InterruptedException, ExecutionException {
-        return firebaseService.getUser(uid);
+        return firebaseManager.getUser(uid);
     }
 
     @PostMapping("/createUser")
     public String createUser(@RequestBody User user) throws InterruptedException, ExecutionException {
-        firebaseService.createUser(user);
+        firebaseManager.createUser(user);
         return "Created User " + user.getUsername();
     }
 
+    //todo: finish update + delete after update model
     @PutMapping("/updateUser")
     public String updateUser(@RequestBody User user) throws InterruptedException, ExecutionException {
         return "Updated User" + user.getUsername();
