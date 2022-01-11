@@ -12,7 +12,7 @@ The repo is organized into two folders: `frontend` and `backend`. Since these ar
 See https://github.com/liaxon/EyebrowApp?fbclid=IwAR3Qm2YhBPxOsKN9BVpDjhHXKPGiyKr6-EWfOAS0qftAwW41FLmYmZprGXY
 
 ## The Backend
-This repo is for BE of the app. 
+This repo is for BE of the app. System design is here: https://lucid.app/lucidchart/6d6f4e05-d6b5-4c65-898a-0c0cedef3fc0/edit?page=0_0&invitationId=inv_6ae43104-2dba-4520-8f2b-b9b9bd024658#
 
 ## The Backend Deployment
 We use heroku for deplument
