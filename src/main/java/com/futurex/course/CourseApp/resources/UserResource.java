@@ -36,6 +36,7 @@ public class UserResource {
         return "Created User " + user.getUsername();
     }
 
+    //todo: finish update + delete after update model
     @PutMapping("/updateUser")
     public String updateUser(@RequestBody User user) throws InterruptedException, ExecutionException {
         return "Updated User" + user.getUsername();
