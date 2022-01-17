@@ -20,7 +20,7 @@ public class UserResource {
     @Autowired
     private FirebaseManager firebaseManager;
 
-    @GetMapping("/debug")
+    @GetMapping("/user/debug")
     public String test() throws InterruptedException, ExecutionException {
         return "Working";
     }
