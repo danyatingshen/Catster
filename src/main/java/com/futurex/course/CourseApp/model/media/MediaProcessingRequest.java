@@ -1,4 +1,4 @@
-package com.futurex.course.CourseApp.model.processing;
+package com.futurex.course.CourseApp.model.media;
 
 import org.springframework.stereotype.Component;
 
