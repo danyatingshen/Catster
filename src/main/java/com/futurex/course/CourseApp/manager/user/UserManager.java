@@ -1,5 +1,6 @@
 package com.futurex.course.CourseApp.manager.user;
 
+import java.time.Clock;
 import java.util.concurrent.ExecutionException;
 
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import com.google.firebase.cloud.FirestoreClient;
 @Service
 public class UserManager {
 
-  public UserFullDefinition getAUser(String uuid) throws ExecutionException, InterruptedException {
+  public UserFullDefinition getUser(String uuid) throws ExecutionException, InterruptedException {
     Firestore firestore = FirestoreClient.getFirestore();
     ApiFuture<DocumentSnapshot> documentReference = firestore.collection("users").document(uuid).get();
     if (documentReference.get().exists()){
@@ -24,7 +25,7 @@ public class UserManager {
     return null;
   }
 
-  public UserFullDefinition createAUser(UserFullDefinition user) {
+  public UserFullDefinition upsertUser(UserFullDefinition user) {
     Firestore firestore = FirestoreClient.getFirestore();
     try{
       ApiFuture<WriteResult> firebaseResult = firestore.collection("users").document(user.getUuid()).set(user);
@@ -33,5 +34,27 @@ public class UserManager {
       System.out.println("Error to connect to Firebase when createUserCore");
     }
     return user;
+  }
+
+  public void archiveUser(String uuid) {
+    Firestore firestore = FirestoreClient.getFirestore();
+    try{
+      UserFullDefinition maybeUser = getUser(uuid);
+      maybeUser.setArchivedAt(Clock.systemUTC().instant().toString());
+      ApiFuture<WriteResult> firebaseResult = firestore.collection("users").document(maybeUser.getUuid()).set(maybeUser);
+    } catch (Exception e) {
+      //todo: add more detailed user info for debug, error handle
+      System.out.println("Error to connect to Firebase when archiveUser");
+    }
+  }
+
+  public void purgeUser(String uuid) {
+    Firestore firestore = FirestoreClient.getFirestore();
+    try{
+      ApiFuture<WriteResult> firebaseResult = firestore.collection("users").document(uuid).delete();
+    } catch (Exception e) {
+      //todo: add more detailed user info for debug, error handle
+      System.out.println("Error to connect to Firebase when purgeUser");
+    }
   }
 }

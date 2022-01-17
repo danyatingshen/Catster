@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.futurex.course.CourseApp.manager.user.UserManager;
-import com.futurex.course.CourseApp.model.user.User;
 import com.futurex.course.CourseApp.model.user.UserFullDefinition;
 
 @RestController
@@ -28,24 +27,31 @@ public class UserResource {
 
     @GetMapping("/getUser")
     public UserFullDefinition getUser(@RequestParam() String uuid) throws InterruptedException, ExecutionException {
-        return userManager.getAUser(uuid);
+        return userManager.getUser(uuid);
     }
 
     @PostMapping("/createUser")
     public String createUser(@RequestBody UserFullDefinition user) throws InterruptedException, ExecutionException {
-        userManager.createAUser(user);
+        userManager.upsertUser(user);
         return "Created User Successfully at: " + user.getCreatedAt();
     }
 
-    //todo: finish update + delete after update model
     @PutMapping("/updateUser")
-    public String updateUser(@RequestBody User user) throws InterruptedException, ExecutionException {
-        return "Updated User" + user.getUsername();
+    public String updateUser(@RequestBody UserFullDefinition user) throws InterruptedException, ExecutionException {
+        userManager.upsertUser(user);
+        return "Updated User" + user.getUpdatedAt();
     }
 
-    @DeleteMapping("/deleteUser")
-    public String deleteUser(@RequestParam String uid) {
-        return "Deleted User " + uid;
+    @PutMapping("/archiveUser")
+    public String archiveUser(@RequestParam String uuid) {
+        userManager.archiveUser(uuid);
+        return "archiveUser User " + uuid;
+    }
+
+    @DeleteMapping("/purgeUser")
+    public String deleteUser(@RequestParam String uuid) {
+        userManager.purgeUser(uuid);
+        return "purgeUser User " + uuid;
     }
 
 }
