@@ -1,4 +1,4 @@
-package com.futurex.course.CourseApp.model.processing;
+package com.futurex.course.CourseApp.model.media;
 
 public class MediaProcessingResult{
   private String userId;

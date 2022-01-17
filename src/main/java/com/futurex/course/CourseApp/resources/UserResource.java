@@ -11,29 +11,30 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.futurex.course.CourseApp.manager.firebase.FirebaseManager;
+import com.futurex.course.CourseApp.manager.user.UserManager;
 import com.futurex.course.CourseApp.model.user.User;
+import com.futurex.course.CourseApp.model.user.UserFullDefinition;
 
 @RestController
 public class UserResource {
 
     @Autowired
-    private FirebaseManager firebaseManager;
+    private UserManager userManager;
 
     @GetMapping("/user/debug")
     public String test() throws InterruptedException, ExecutionException {
-        return "Working";
+        return "user endpoints are Working";
     }
 
     @GetMapping("/getUser")
-    public User getUser(@RequestParam() String uid) throws InterruptedException, ExecutionException {
-        return firebaseManager.getUser(uid);
+    public UserFullDefinition getUser(@RequestParam() String uuid) throws InterruptedException, ExecutionException {
+        return userManager.getAUser(uuid);
     }
 
     @PostMapping("/createUser")
-    public String createUser(@RequestBody User user) throws InterruptedException, ExecutionException {
-        firebaseManager.createUser(user);
-        return "Created User " + user.getUsername();
+    public String createUser(@RequestBody UserFullDefinition user) throws InterruptedException, ExecutionException {
+        userManager.createAUser(user);
+        return "Created User Successfully at: " + user.getCreatedAt();
     }
 
     //todo: finish update + delete after update model
