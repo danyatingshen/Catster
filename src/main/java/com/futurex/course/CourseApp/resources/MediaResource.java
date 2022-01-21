@@ -2,6 +2,7 @@ package com.futurex.course.CourseApp.resources;
 
 import java.util.concurrent.ExecutionException;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,11 +14,13 @@ import com.futurex.course.CourseApp.model.media.MediaProcessingResult;
 @RestController
 public class MediaResource {
   @GetMapping("/media/debug")
+  @CrossOrigin
   public String test() throws InterruptedException, ExecutionException {
     return "Working";
   }
 
   @PostMapping("/media/process")
+  @CrossOrigin
   public MediaProcessingResult processingMedia(@RequestBody MediaProcessingRequest mediaProcessingRequest) throws InterruptedException, ExecutionException {
     return new MediaProcessingResult("userId","logId","taskId","hello");
   }
