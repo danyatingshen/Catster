@@ -22,7 +22,7 @@ public class UserResource {
     private UserManager userManager;
 
     @GetMapping("/user/debug")
-    @CrossOrigin(origins = ".")
+    @CrossOrigin
     public String test() throws InterruptedException, ExecutionException {
         return "user endpoints are Working";
     }
