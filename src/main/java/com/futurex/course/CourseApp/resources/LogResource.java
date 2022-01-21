@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.futurex.course.CourseApp.model.media.MediaProcessingRequest;
 import com.futurex.course.CourseApp.model.media.MediaProcessingResult;
 
+
 @RestController
-public class MediaResource {
+public class LogResource {
   @GetMapping("/media/debug")
   public String test() throws InterruptedException, ExecutionException {
     return "Working";
