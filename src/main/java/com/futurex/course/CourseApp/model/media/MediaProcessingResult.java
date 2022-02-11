@@ -1,9 +1,41 @@
 package com.futurex.course.CourseApp.model.media;
 
+import org.springframework.stereotype.Component;
+
+import com.futurex.course.CourseApp.model.error.MediaError;
+
+@Component
 public class MediaProcessingResult{
   private String userId;
   private String logId;
-  private String taskId;
+  private String correlationId;
+  private TranslationResult translationResult;
+  private MediaError mediaError;
+
+  public MediaProcessingResult() {
+  }
+
+  public MediaProcessingResult(String userId, String logId, String correlationId, TranslationResult translationResult) {
+    this.userId = userId;
+    this.logId = logId;
+    this.correlationId = correlationId;
+    this.translationResult = translationResult;
+  }
+
+  public MediaProcessingResult(String userId, String logId, String correlationId, MediaError mediaError) {
+    this.userId = userId;
+    this.logId = logId;
+    this.correlationId = correlationId;
+    this.mediaError = mediaError;
+  }
+
+  public MediaProcessingResult(String userId, String logId, String correlationId, TranslationResult translationResult, MediaError mediaError) {
+    this.userId = userId;
+    this.logId = logId;
+    this.correlationId = correlationId;
+    this.translationResult = translationResult;
+    this.mediaError = mediaError;
+  }
 
   public String getUserId() {
     return userId;
@@ -21,33 +53,27 @@ public class MediaProcessingResult{
     this.logId = logId;
   }
 
-  public String getTaskId() {
-    return taskId;
+  public String getCorrelationId() {
+    return correlationId;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
+  public void setCorrelationId(String correlationId) {
+    this.correlationId = correlationId;
   }
 
-  public String getProcessingResult() {
-    return processingResult;
+  public TranslationResult getTranslationResult() {
+    return translationResult;
   }
 
-  public void setProcessingResult(String processingResult) {
-    this.processingResult = processingResult;
+  public void setTranslationResult(TranslationResult translationResult) {
+    this.translationResult = translationResult;
   }
 
-  private String processingResult;
-
-
-  public MediaProcessingResult(){
-    super();
+  public MediaError getMediaError() {
+    return mediaError;
   }
 
-  public MediaProcessingResult(String userId, String logId, String taskId, String processingResult) {
-    this.userId = userId;
-    this.logId = logId;
-    this.taskId = taskId;
-    this.processingResult = processingResult;
+  public void setMediaError(MediaError mediaError) {
+    this.mediaError = mediaError;
   }
 }
