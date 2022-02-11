@@ -2,14 +2,22 @@ package com.futurex.course.CourseApp.model.media;
 
 import org.springframework.stereotype.Component;
 
+
 @Component
 public class MediaProcessingRequest {
   private String userId;
   private String logId;
-  private String taskId;
-  private String audioUrl;
-  private String pictureUrl;
+  private String correlationId;
   private String createDate;
+
+  public MediaProcessingRequest(){}
+
+  public MediaProcessingRequest(String userId, String logId, String correlationId, String createDate) {
+    this.userId = userId;
+    this.logId = logId;
+    this.correlationId = correlationId;
+    this.createDate = createDate;
+  }
 
   public String getUserId() {
     return userId;
@@ -27,28 +35,12 @@ public class MediaProcessingRequest {
     this.logId = logId;
   }
 
-  public String getTaskId() {
-    return taskId;
+  public String getCorrelationId() {
+    return correlationId;
   }
 
-  public void setTaskId(String taskId) {
-    this.taskId = taskId;
-  }
-
-  public String getAudioUrl() {
-    return audioUrl;
-  }
-
-  public void setAudioUrl(String audioUrl) {
-    this.audioUrl = audioUrl;
-  }
-
-  public String getPictureUrl() {
-    return pictureUrl;
-  }
-
-  public void setPictureUrl(String pictureUrl) {
-    this.pictureUrl = pictureUrl;
+  public void setCorrelationId(String correlationId) {
+    this.correlationId = correlationId;
   }
 
   public String getCreateDate() {
@@ -56,17 +48,6 @@ public class MediaProcessingRequest {
   }
 
   public void setCreateDate(String createDate) {
-    this.createDate = createDate;
-  }
-
-  public MediaProcessingRequest(){}
-
-  public MediaProcessingRequest(String userId, String logId, String taskId, String audioUrl, String pictureUrl, String createDate) {
-    this.userId = userId;
-    this.logId = logId;
-    this.taskId = taskId;
-    this.audioUrl = audioUrl;
-    this.pictureUrl = pictureUrl;
     this.createDate = createDate;
   }
 }
