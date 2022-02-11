@@ -1,27 +1,43 @@
 package com.futurex.course.CourseApp.model.log;
 
+import org.springframework.stereotype.Component;
+
+import com.futurex.course.CourseApp.model.media.TranslationResult;
+
+@Component
 public class SingleLogEgg {
-  private String logId;
-  private String logContent;
+  private LogIdentifier logIdentifier;
+  private TranslationResult translationResult;
 
-  public SingleLogEgg(String logId, String logContent) {
-    this.logId = logId;
-    this.logContent = logContent;
+  public SingleLogEgg() {
   }
 
-  public String getLogId() {
-    return logId;
+  public SingleLogEgg(LogIdentifier logIdentifier, TranslationResult translationResult) {
+    this.logIdentifier = logIdentifier;
+    this.translationResult = translationResult;
   }
 
-  public void setLogId(String logId) {
-    this.logId = logId;
+  public LogIdentifier getLogIdentifier() {
+    return logIdentifier;
   }
 
-  public String getLogContent() {
-    return logContent;
+  public void setLogIdentifier(LogIdentifier logIdentifier) {
+    this.logIdentifier = logIdentifier;
   }
 
-  public void setLogContent(String logContent) {
-    this.logContent = logContent;
+  public TranslationResult getTranslationResult() {
+    return translationResult;
+  }
+
+  public void setTranslationResult(TranslationResult translationResult) {
+    this.translationResult = translationResult;
+  }
+
+  public SingleLog toSingleLog (SingleLogEgg singleLogEgg, String singleLogId) {
+    return new SingleLog(
+        singleLogEgg.getLogIdentifier(),
+        singleLogId,
+        singleLogEgg.getTranslationResult()
+    );
   }
 }

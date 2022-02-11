@@ -29,7 +29,7 @@ public class UserResource {
 
     @GetMapping("/getUser")
     @CrossOrigin
-    public UserFullDefinition getUser(@RequestParam() String uuid) throws InterruptedException, ExecutionException {
+    public UserFullDefinition getUser(@RequestParam String uuid) throws InterruptedException, ExecutionException {
         return userManager.getUser(uuid);
     }
 

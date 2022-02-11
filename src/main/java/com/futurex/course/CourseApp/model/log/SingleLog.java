@@ -2,48 +2,55 @@ package com.futurex.course.CourseApp.model.log;
 
 import org.springframework.stereotype.Component;
 
+import com.futurex.course.CourseApp.model.media.TranslationResult;
+
 @Component
 public class SingleLog {
-  private String logId;
-  private int singleLogId;
-  private String logContent;
+  private LogIdentifier logIdentifier;
+  private String SingleLogId;
+  private TranslationResult translationResult;
   private String createdAt;
-  private String archivedAt;
-  private String updatedAt;
+  private String purgeAt;
 
-  public SingleLog(String logId, int singleLogId, String logContent, String createdAt, String archivedAt, String updatedAt) {
-    this.logId = logId;
-    this.singleLogId = singleLogId;
-    this.logContent = logContent;
+  public SingleLog() {
+  }
+
+  public SingleLog(LogIdentifier logIdentifier, String singleLogId, TranslationResult translationResult) {
+    this.logIdentifier = logIdentifier;
+    SingleLogId = singleLogId;
+    this.translationResult = translationResult;
+  }
+
+  public SingleLog(LogIdentifier logIdentifier, String singleLogId, TranslationResult translationResult, String createdAt, String purgeAt) {
+    this.logIdentifier = logIdentifier;
+    SingleLogId = singleLogId;
+    this.translationResult = translationResult;
     this.createdAt = createdAt;
-    this.archivedAt = archivedAt;
-    this.updatedAt = updatedAt;
+    this.purgeAt = purgeAt;
   }
 
-  public SingleLog(){}
-
-  public String getLogId() {
-    return logId;
+  public LogIdentifier getLogIdentifier() {
+    return logIdentifier;
   }
 
-  public void setLogId(String logId) {
-    this.logId = logId;
+  public void setLogIdentifier(LogIdentifier logIdentifier) {
+    this.logIdentifier = logIdentifier;
   }
 
-  public int getSingleLogId() {
-    return singleLogId;
+  public String getSingleLogId() {
+    return SingleLogId;
   }
 
-  public void setSingleLogId(int singleLogId) {
-    this.singleLogId = singleLogId;
+  public void setSingleLogId(String singleLogId) {
+    SingleLogId = singleLogId;
   }
 
-  public String getLogContent() {
-    return logContent;
+  public TranslationResult getTranslationResult() {
+    return translationResult;
   }
 
-  public void setLogContent(String logContent) {
-    this.logContent = logContent;
+  public void setTranslationResult(TranslationResult translationResult) {
+    this.translationResult = translationResult;
   }
 
   public String getCreatedAt() {
@@ -54,19 +61,12 @@ public class SingleLog {
     this.createdAt = createdAt;
   }
 
-  public String getArchivedAt() {
-    return archivedAt;
+  public String getPurgeAt() {
+    return purgeAt;
   }
 
-  public void setArchivedAt(String archivedAt) {
-    this.archivedAt = archivedAt;
+  public void setPurgeAt(String purgeAt) {
+    this.purgeAt = purgeAt;
   }
 
-  public String getUpdatedAt() {
-    return updatedAt;
-  }
-
-  public void setUpdatedAt(String updatedAt) {
-    this.updatedAt = updatedAt;
-  }
 }
