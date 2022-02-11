@@ -30,6 +30,5 @@ public class MediaResource {
                                               @RequestParam("logId") String logId,
                                               @RequestParam("file") MultipartFile file) throws InterruptedException, ExecutionException {
    return mediaManager.processMedia(userId,logId,file);
-
   }
 }

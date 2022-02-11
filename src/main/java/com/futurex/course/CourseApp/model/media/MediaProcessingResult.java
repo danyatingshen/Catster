@@ -11,6 +11,7 @@ public class MediaProcessingResult{
   private String correlationId;
   private TranslationResult translationResult;
   private MediaError mediaError;
+  private String timeStamp;
 
   public MediaProcessingResult() {
   }
