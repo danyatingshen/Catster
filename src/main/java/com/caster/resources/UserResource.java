@@ -37,16 +37,14 @@ public class UserResource {
 
     @PostMapping("/createUser")
     @CrossOrigin
-    public String createUser(@RequestBody UserDefinitionEgg userDefinitionEgg) {
-        UserFullDefinition definition = userManager.create(userDefinitionEgg);
-        return String.format("[%s,timeStamp:%s]","Created User Successfully", definition.getCreatedAt());
+    public UserFullDefinition createUser(@RequestBody UserDefinitionEgg userDefinitionEgg) {
+        return userManager.create(userDefinitionEgg);
     }
 
     @PutMapping("/updateUser")
     @CrossOrigin
-    public String updateUser(@RequestBody UserDefinitionPatch userDefinitionPatch) {
-        UserFullDefinition definition = userManager.update(userDefinitionPatch);
-        return String.format("[%s,timeStamp:%s]","Updated User Successfully", definition.getUpdatedAt());
+    public UserFullDefinition updateUser(@RequestBody UserDefinitionPatch userDefinitionPatch) {
+        return userManager.update(userDefinitionPatch);
     }
 
     @PutMapping("/archiveUser")

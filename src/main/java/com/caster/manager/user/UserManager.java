@@ -27,7 +27,7 @@ public class UserManager {
     UserFullDefinition definition = userDefinitionEgg.toUserFullDefinition(
         uuidToStore,LogId
     );
-    definition.setCreatedAt(Clock.systemUTC().toString());
+    definition.setCreatedAt(Clock.systemUTC().instant().toString());
     return upsertUserInDatabase(definition);
   }
 
@@ -41,6 +41,7 @@ public class UserManager {
                 ).buildNotFoundError(userDefinitionPatch.getUuid())
                 )
             );
+    //todo: need to use json patch
     UserFullDefinition definitionToUpdate = new UserFullDefinition(
         userDefinitionPatch.getUuid(),
         existingDefinition.getLogId(),
@@ -51,7 +52,7 @@ public class UserManager {
         userDefinitionPatch.getUserSettingProperty().orElse(existingDefinition.getUserSettingProperty())
     );
     definitionToUpdate.setCreatedAt(existingDefinition.getCreatedAt());
-    definitionToUpdate.setUpdatedAt(Clock.systemUTC().toString());
+    definitionToUpdate.setUpdatedAt(Clock.systemUTC().instant().toString());
     return upsertUserInDatabase(definitionToUpdate);
   }
 
