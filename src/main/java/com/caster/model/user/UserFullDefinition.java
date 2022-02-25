@@ -17,6 +17,16 @@ public class UserFullDefinition {
 
   public UserFullDefinition(){};
 
+  public UserFullDefinition(String uuid, Long logId, String firstName, String lastName, UserProperty userProperty, UserSecrete userSecrete, UserSettingProperty userSettingProperty) {
+    this.uuid = uuid;
+    this.logId = logId;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.userProperty = userProperty;
+    this.userSecrete = userSecrete;
+    this.userSettingProperty = userSettingProperty;
+  }
+
   public UserFullDefinition(String uuid, Long logId, String firstName, String lastName, String createdAt, String archivedAt, String updatedAt, UserProperty userProperty, UserSecrete userSecrete, UserSettingProperty userSettingProperty) {
     this.uuid = uuid;
     this.logId = logId;
@@ -29,6 +39,8 @@ public class UserFullDefinition {
     this.userSecrete = userSecrete;
     this.userSettingProperty = userSettingProperty;
   }
+
+
 
   public UserSecrete getUserSecrete() {
     return userSecrete;

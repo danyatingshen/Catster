@@ -57,4 +57,19 @@ public class UserDefinitionEgg {
   public void setUserSettingProperty(UserSettingProperty userSettingProperty) {
     this.userSettingProperty = userSettingProperty;
   }
+
+  public UserFullDefinition toUserFullDefinition (
+      String uuid,
+      long logId
+  ) {
+    return new UserFullDefinition(
+        uuid,
+        logId,
+        getFirstName(),
+        getLastName(),
+        getUserProperty(),
+        getUserSecrete(),
+        getUserSettingProperty()
+    );
+  }
 }
