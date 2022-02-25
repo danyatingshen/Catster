@@ -1,5 +1,7 @@
 package com.caster.model.user;
 
 public enum UserScope {
-  ADMIN
+  ADMIN,
+  GENERAL_USER,
+  VIP_USER
 }
